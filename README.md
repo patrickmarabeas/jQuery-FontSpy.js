@@ -1,6 +1,8 @@
 Font-Face-Font-Checker
 ======================
 
+Demo: http://pulse-dev.com/files/stackoverflow/fontfacedelay/index4.htm
+
 This jQuery plugin will allow you to check whether custom @font-face fonts have loaded or not. This allows you to alter your styles while fonts are loading in, or upon failure.
 
 This works by checking the change in width of a string. We are using Comic-Sans as the font to compare against as it is the most different. Using a very large font-size, we are able to determine even the slightest change. When the width of the string changes, we know that the custom font-face file has been loaded and applied.
