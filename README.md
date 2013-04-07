@@ -1,4 +1,4 @@
-Font-Face-Font-Checker
+Font-Face Font Checker
 ======================
 
 Demo: http://pulse-dev.com/files/stackoverflow/fontfacedelay/index4.htm
