@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+	<title>jQuery-FontFaceSpy.js</title>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+	<script src="jQuery-FontFaceSpy.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/main.css" />
+
+</head>
+<body>
+
+	<header id="top">
+		<a href="https://github.com/patrickmarabeas/jQuery-FontFaceSpy.js">View it on GitHub</a>
+		<a href="https://github.com/patrickmarabeas/jQuery-FontFaceSpy.js/zipball/master">Download ZIP</a>
+		<a href="https://github.com/patrickmarabeas/jQuery-FontFaceSpy.js/tarball/master">Download TAR</a>
+		<a href="https://github.com/patrickmarabeas">@patrickmarabeas</a>
+	</header>
+
+
+	<hr/>
+	<h1>NO FLASH OF UNSTYLED CONTENT</h1>
+	<hr/>
+	<p>
+		<span class="bannerTextChecked">jQuery-FontFaceSpy.js</span>
+	</p>
+	<hr/>
+	<h1>FLASH OF UNSTYLED CONTENT</h1>
+	<hr/>
+	<p>
+		<span class="bannerText">jQuery-FontFaceSpy.js</span>
+	</p>
+	<hr/>
+	<h1>BROKEN FONT LINK + RESIZE SMALL + COLOR + DIFFERENT FONT</h1>
+	<hr/>
+	<p>
+		<span class="bannerTextBrokenOne">jQuery-FontFaceSpy.js</span>
+	</p>
+	<hr/>
+	<h1>BROKEN FONT LINK + RESIZE LARGE</h1>
+	<hr/>
+	<p>
+		<span class="bannerTextBrokenTwo">jQuery-FontFaceSpy.js</span>
+	</p>
+
+
+	<script>
+
+		$(document).ready(function() {
+
+			$('.bannerTextChecked').fontChecker({
+				onLoad: 'hideMe',
+				onFail: 'fontFail'
+			});
+
+			$('.bannerTextBrokenOne').fontChecker({
+				onLoad: 'hideMe',
+				onFail: 'fontFail makeSmall'
+			});
+
+			$('.bannerTextBrokenTwo').fontChecker({
+				onLoad: 'hideMe',
+				onFail: 'fontFail makeBig'
+			});
+
+		});
+
+	</script>
+
+</body>
+
+</html>

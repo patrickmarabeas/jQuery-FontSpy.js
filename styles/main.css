@@ -1,0 +1,92 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+@font-face {
+	font-family: "Lobster";
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/Lobster_1.3-webfont.eot');
+	src: url('fonts/Lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/Lobster_1.3-webfont.woff') format('woff'),
+	url('fonts/Lobster_1.3-webfont.ttf') format('truetype'),
+	url('fonts/Lobster_1.3-webfont.svg') format('svg');
+}
+
+@font-face {
+	font-family: "BROKEN";
+	font-style: normal;
+	font-weight: normal;
+	src: url('Lobster_1.3-.eot');
+	src: url('Lobster_1.3-.eot?#iefix') format('embedded-opentype'),
+	url('Lobster_1.3-.woff') format('woff'),
+	url('Lobster_1.3-.ttf') format('truetype'),
+	url('Lobster_1.3-.svg') format('svg');
+}
+
+#top {
+	width: 100%;
+	background-color: #1f2325;
+	color: white;
+}
+
+#top a {
+	font-family: 'open_sansregular', sans-serif;
+	line-height: 50px;
+	margin: 0 10px;
+	color: #f0efee;
+}
+
+h1 {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+p {
+	margin-left: 15px;
+}
+
+
+
+.bannerText {
+	font-family: "Lobster";
+	font-size: 60px;
+}
+
+.bannerTextChecked {
+	font-family: "Lobster";
+	font-size: 60px;
+}
+
+.bannerTextBrokenOne {
+	font-family: "BROKEN";
+	font-size: 60px;
+}
+
+
+.bannerTextBrokenTwo {
+	font-family: "BROKEN";
+	font-size: 60px;
+}
+
+
+
+
+.hideMe {
+	visibility: hidden !important;
+}
+
+.fontFail {
+	visibility: visible !important;
+}
+
+.makeSmall {
+	font-size: 20px !important;
+	color: green !important;
+	font-family: verdana !important;
+}
+
+.makeBig {
+	font-size: 80px !important;
+}
