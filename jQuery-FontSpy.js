@@ -1,5 +1,5 @@
-/* jQuery-FontFaceSpy.js v2.0.0
- * https://github.com/patrickmarabeas/jQuery-FontFaceSpy.js
+/* jQuery-FontSpy.js v2.0.0
+ * https://github.com/patrickmarabeas/jQuery-FontSpy.js
  *
  * Copyright 2013, Patrick Marabeas http://pulse-dev.com
  * Released under the MIT license
@@ -10,7 +10,7 @@
 
 (function($) {
 
-	$.fontChecker = function( element, conf ) {
+	$.fontSpy = function( element, conf ) {
 		var $element = $(element);
 		var defaults = {
 			font: $element.css("font-family"),
@@ -54,11 +54,11 @@
 		checkFont();
 	};
 
-	$.fn.fontChecker = function(config) {
+	$.fn.fontSpy = function(config) {
 		return this.each(function() {
-			if (undefined == $(this).data('fontChecker')) {
-				var plugin = new $.fontChecker(this, config);
-				$(this).data('fontChecker', plugin);
+			if (undefined == $(this).data('fontSpy')) {
+				var plugin = new $.fontSpy(this, config);
+				$(this).data('fontSpy', plugin);
 			}
 		});
 	};

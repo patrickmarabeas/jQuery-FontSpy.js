@@ -1,4 +1,4 @@
-# jQuery-FontFaceSpy.js
+# jQuery-FontSpy.js
 
 ### Style your @font-face elements while they load or upon catastrophic failure.
 
@@ -13,7 +13,7 @@ Apply it to your project
 
 	$(document).ready(function() {
 
-		$('.bannerTextChecked').fontChecker({
+		$('.bannerTextChecked').fontSpy({
 			onLoad: 'hideMe',
 			onFail: 'fontFail anotherClass'
 		});
