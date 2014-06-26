@@ -10,57 +10,66 @@
 
 (function($) {
 
-	$.fontSpy = function( element, conf ) {
-		var $element = $(element);
-		var defaults = {
-			font: $element.css("font-family"),
-			onLoad: '',
-			onFail: '',
-			testFont: 'Comic Sans MS',
-			testString: 'QW@HhsXJ',
-			delay: 50,
-			timeOut: 2500
-		};
-		var config = $.extend( defaults, conf );
-		var tester = document.createElement('span');
-			tester.style.position = 'absolute';
-			tester.style.top = '-9999px';
-			tester.style.left = '-9999px';
-			tester.style.visibility = 'hidden';
-			tester.style.fontFamily = config.testFont;
-			tester.style.fontSize = '250px';
-			tester.innerHTML = config.testString;
-		document.body.appendChild(tester);
-		var fallbackFontWidth = tester.offsetWidth;
-		tester.style.fontFamily = config.font + ',' + config.testFont;
-		function checkFont() {
-			var loadedFontWidth = tester.offsetWidth;
-			if (fallbackFontWidth === loadedFontWidth){
-				if(config.timeOut < 0) {
-					$element.removeClass(config.onLoad);
-					$element.addClass(config.onFail);
-					console.log('failure');
-				}
-				else {
-					$element.addClass(config.onLoad);
-					setTimeout(checkFont, config.delay);
-					config.timeOut = config.timeOut - config.delay;
-				}
-			}
-			else {
-				$element.removeClass(config.onLoad);
-			}
-		}
-		checkFont();
-	};
+    function FontSpy ( element, conf ) {
+        var $element = $(element);
+        var defaults = {
+            font: $element.css("font-family"),
+            onLoad: '',
+            onFail: '',
+            testFont: 'Comic Sans MS',
+            testString: 'QW@HhsXJ',
+            delay: 50,
+            timeOut: 2500,
+            callback: $.noop
+        };
+        var config = $.extend( defaults, conf );
+        var $tester = $('<span>' + config.testString + '</span>')
+            .css('position', 'absolute')
+            .css('top', '-9999px')
+            .css('left', '-9999px')
+            .css('visibility', 'hidden')
+            .css('fontFamily', config.testFont)
+            .css('fontSize', '250px')
+        $('body').append($tester);
+        var fallbackFontWidth = $tester.outerWidth();
+        $tester.css('fontFamily', config.font + ',' + config.testFont);
 
-	$.fn.fontSpy = function(config) {
-		return this.each(function() {
-			if (undefined == $(this).data('fontSpy')) {
-				var plugin = new $.fontSpy(this, config);
-				$(this).data('fontSpy', plugin);
-			}
-		});
-	};
+        function checkFont() {
+            var loadedFontWidth = $tester.outerWidth();
+            if (fallbackFontWidth !== loadedFontWidth){
+                success();
+            } else if(config.timeOut < 0) {
+                failure();
+            } else {
+                retry();
+            }
+        }
+        function failure () {
+            $element.removeClass(config.onLoad);
+            $element.addClass(config.onFail);
+            config.callback(new Error('FontSpy timeout'));
+            $tester.remove();
+        }
+        function success () {
+            config.callback();
+            $element.removeClass(config.onLoad);
+            $tester.remove();
+        }
+        function retry () {
+            $element.addClass(config.onLoad);
+            setTimeout(checkFont, config.delay);
+            config.timeOut = config.timeOut - config.delay;
+        }
+        checkFont();
+    }
+
+    $.fn.fontSpy = function(config) {
+        return this.each(function() {
+            if (undefined == $(this).data('fontSpy')) {
+                var plugin = new FontSpy(this, config);
+                $(this).data('fontSpy', plugin);
+            }
+        });
+    };
 
 })(jQuery);
