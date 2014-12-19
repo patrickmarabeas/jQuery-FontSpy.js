@@ -11,9 +11,10 @@
 (function($) {
 
     function FontSpy ( element, conf ) {
-        var $element = $(element);
+        var $element = $(element),
+            fontFamily = $element.css("font-family");
         var defaults = {
-            font: $element.css("font-family"),
+            font: (fontFamily.search(',') > -1) ? fontFamily.match(/^(\w+),/)[1] : fontFamily,
             onLoad: '',
             onFail: '',
             testFont: 'Comic Sans MS',
@@ -29,7 +30,7 @@
             .css('left', '-9999px')
             .css('visibility', 'hidden')
             .css('fontFamily', config.testFont)
-            .css('fontSize', '250px')
+            .css('fontSize', '250px');
         $('body').append($tester);
         var fallbackFontWidth = $tester.outerWidth();
         $tester.css('fontFamily', config.font + ',' + config.testFont);
