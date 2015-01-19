@@ -12,7 +12,7 @@
 
     function FontSpy ( element, conf ) {
         var $element = $(element),
-            fontFamily = $element.css("font-family");
+            fontFamily = $element.css("font-family").replace(/"/g, '').replace(/'/g, '');
         var defaults = {
             font: (fontFamily.search(',') > -1) ? fontFamily.match(/^(\w+),/)[1] : fontFamily,
             onLoad: '',
