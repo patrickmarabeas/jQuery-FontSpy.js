@@ -2,38 +2,48 @@
 
 ### Style your @font-face elements while they load or upon catastrophic failure.
 
-This works by checking the change in width of a string. Comic-Sans is used as the font to compare against as it is the most "unique" default font. Using a very large font-size, we are able to determine even the slightest change. When the width of the string changes, we know that the custom font-face file has been loaded and applied.
+jQuery-FontSpy.js works by checking the change in width of a string. Courier New is used as the font to compare against as it is one of the most widely distrubuted default fonts. Using a very large font-size, we are able to determine even the slightest change. When the width of the string changes, we know that the custom font-face file has been loaded and applied.
 
-Apply it to your project
+## Usage:
 
-	.bannerTextChecked {
-    		font-family: "Lobster";
-    		/* don't specify fallback font here, do this in onFail class */
-    }
+```javascript
+fontSpy('My Icons', {
+  glyphs: '\ue81a\ue82d\ue823',
+  success: function() {
+    //alert("My Icons loaded successfully");
+  },
+  failure: function() {
+    //alert("My Icons failed to load");
+  }
+});
+```
 
-	$(document).ready(function() {
+The first argument passed to fontSpy is the name of the font-family. This is used to style the test string when checking width changes.
 
-		$('.bannerTextChecked').fontSpy({
-			onLoad: 'hideMe',
-			onFail: 'fontFail anotherClass'
-		});
+The second argument is for options that can be passed to jQuery-FontSpy.
 
-	});
+If a custom font is loaded, a class with the font name is added to the html element.
+If a custom font fails to load, a class with the font name prefixed with `no-` is add to the HTML element.
 
-Remove that FOUC!
-
-	.hideMe {
-		visibility: hidden !important;
-	}
-
-	.fontFail {
-		visibility: visible !important;
-		/* fall back font */
-		/* necessary styling so fallback font doesn't break your layout */
-	}
+Font names are converted to lowercase and spaces are removed when converted to class names to be used on the HTML element.
+For example, the font name, `My Icons` will render as `myicons` when used an HTML class.
 
 
+## Options
 
+**glyphs:** If your font is mapped to PUA characters, you can pass a few of the glyphs contained in the custom font. We measure these characters to make sure the font has loaded successfully.
 
+**success:** If the font specified as in the first arguement passed to fontSpy loads, you can excute custom JavaScript here.
 
+**failure:** If the font specified as in the first arguement passed to fontSpy fails to load, you can excute custom JavaScript here.
 
+## Browser Support
+
+fontcheck has been tested and works in the following environments.
+
+* Chrome 40
+* Firefox 35
+* Safari 7.1
+* Internet Explorer 8, 9, 10, 11
+* Android 4.4.4 Stock Browser
+* iOS Safari 8.1

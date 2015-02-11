@@ -22,48 +22,32 @@
 
 
 	<hr/>
-	<h1>NO FLASH OF UNSTYLED CONTENT</h1>
-	<hr/>
-	<p>
-		<span class="bannerTextChecked">jQuery-FontSpy.js</span>
-	</p>
-	<hr/>
-	<h1>FLASH OF UNSTYLED CONTENT</h1>
-	<hr/>
-	<p>
-		<span class="bannerText">jQuery-FontSpy.js</span>
-	</p>
-	<hr/>
-	<h1>BROKEN FONT LINK + RESIZE SMALL + COLOR + DIFFERENT FONT</h1>
-	<hr/>
-	<p>
-		<span class="bannerTextBrokenOne">jQuery-FontSpy.js</span>
-	</p>
-	<hr/>
-	<h1>BROKEN FONT LINK + RESIZE LARGE</h1>
-	<hr/>
-	<p>
-		<span class="bannerTextBrokenTwo">jQuery-FontSpy.js</span>
-	</p>
+	<main id="main">
+		<div>Lobster font <span id="lobster-result"></span>.</div>
+		<div>BROKEN font <span id="broken-result"></span>.</div>
+	</main>
 
 
 	<script>
 
 		$(document).ready(function() {
 
-			$('.bannerTextChecked').fontSpy({
-				onLoad: 'hideMe',
-				onFail: 'fontFail'
+			fontSpy('Lobster', {
+			  success: function() {
+			    $('#lobster-result').html("loaded successfully");
+			  },
+			  failure: function() {
+			   $('#lobster-result').html("failed to load");
+			  }
 			});
 
-			$('.bannerTextBrokenOne').fontSpy({
-				onLoad: 'hideMe',
-				onFail: 'fontFail makeSmall'
-			});
-
-			$('.bannerTextBrokenTwo').fontSpy({
-				onLoad: 'hideMe',
-				onFail: 'fontFail makeBig'
+			fontSpy('BROKEN', {
+			  success: function() {
+			    $('#broken-result').html("loaded successfully");
+			  },
+			  failure: function() {
+			   $('#broken-result').html("failed to load");
+			  }
 			});
 
 		});

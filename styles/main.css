@@ -38,6 +38,10 @@ html, body {
 	color: #f0efee;
 }
 
+#main {
+	padding: 20px;
+}
+
 h1 {
 	font-size: 12px;
 	font-weight: normal;
@@ -48,45 +52,18 @@ p {
 }
 
 
-
-.bannerText {
-	font-family: "Lobster";
-	font-size: 60px;
+.lobster #lobster-result {
+	color: green;
 }
 
-.bannerTextChecked {
-	font-family: "Lobster";
-	font-size: 60px;
+.no-lobster #lobster-result {
+	color: red;
 }
 
-.bannerTextBrokenOne {
-	font-family: "BROKEN";
-	font-size: 60px;
+.broken #broken-result {
+	color: green;
 }
 
-
-.bannerTextBrokenTwo {
-	font-family: "BROKEN";
-	font-size: 60px;
-}
-
-
-
-
-.hideMe {
-	visibility: hidden !important;
-}
-
-.fontFail {
-	visibility: visible !important;
-}
-
-.makeSmall {
-	font-size: 20px !important;
-	color: green !important;
-	font-family: verdana !important;
-}
-
-.makeBig {
-	font-size: 80px !important;
+.no-broken #broken-result {
+	color: red;
 }
