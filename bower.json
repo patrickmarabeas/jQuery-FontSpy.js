@@ -1,0 +1,16 @@
+{
+  "name": "jQuery-FontSpy",
+  "version": "3.0.0",
+  "main": [
+    "jQuery-FontSpy.js"
+  ],
+  "keywords": [
+    "jQuery",
+    "javascript",
+    "typography"
+  ],
+  "ignore": [
+    "styles",
+    "index.htm"
+  ]
+}
