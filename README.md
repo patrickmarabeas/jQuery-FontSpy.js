@@ -4,6 +4,10 @@
 
 jQuery-FontSpy.js works by checking the change in width of a string. Courier New is used as the font to compare against as it is one of the most widely distrubuted default fonts. Using a very large font-size, we are able to determine even the slightest change. When the width of the string changes, we know that the custom font-face file has been loaded and applied.
 
+## Install:
+
+Grab it with Bower: `bower install fontspy`
+
 ## Usage:
 
 ```javascript
