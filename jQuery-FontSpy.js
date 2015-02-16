@@ -20,6 +20,9 @@
           throw 'A valid fontName is required. fontName must be a string and must not be an empty string.';
         }
 
+    // Add class to hide elements using custom fonts
+    $html.addClass('fonts-loading');
+
     var defaults = {
         font: fontFamilyName,
         fontClass: fontFamilyName.toLowerCase().replace( /\s/g, '' ),
@@ -50,7 +53,7 @@
     $tester.css('fontFamily', config.font + ',' + config.testFont);
 
     var failure = function () {
-      $html.addClass("no-"+config.fontClass);
+      $html.addClass("no-"+config.fontClass).removeClass('fonts-loading');
       if( config && config.failure ) {
         config.failure();
       }
@@ -60,7 +63,7 @@
 
     var success = function () {
       config.callback();
-      $html.addClass(config.fontClass);
+      $html.addClass(config.fontClass).removeClass('fonts-loading');
       if( config && config.success ) {
         config.success();
       }
