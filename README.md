@@ -35,15 +35,23 @@ For example, the font name, `My Icons` will render as `myicons` when used an HTM
 
 ## Preventing FOUC (Flash of unstyled content):
 
-Hiding FOUC is major use case of jQuery-FontSpy.js. To prevent FOUC with jQuery-FontSpy, a class is added to the HTML element at the start of a page load, ```fonts-loading```, which can be used to hide elements using custom-fonts.
+Hiding FOUC is major use case of jQuery-FontSpy.js. To prevent FOUC with jQuery-FontSpy, a class is added to the HTML element at the start of a page load, ```hide-custom-fonts```, which can be used to hide elements using custom-fonts.
 
 ```css
 /* Hide elements using custom fonts until they are loaded to prevent FOUC */
-.fonts-loading .bannerTextChecked {
+.hide-custom-fonts .bannerTextChecked {
   visibility: hidden !important;
 }
 ```
-In the event a custom font loads or fails to load, the ```fonts-loading``` class is removed from the HTML element. This removes the styling hook used to hide elements using a custom font and allows the element to display with either the custom font or the fallback font.
+In the event a custom font loads, a class is added to the html element with the name of the font or if the font fails to load a class with the name of the font prefixed with "no-" is added to the html element. These classes can be used to override the styling that hides elements using custom fonts.
+
+```css
+/* Hide elements using custom fonts until they are loaded to prevent FOUC */
+.lobster .bannerTextChecked,
+.no-lobster .bannerTextChecked {
+  visibility: visible !important;
+}
+```
 
 
 ## Options

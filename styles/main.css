@@ -87,11 +87,21 @@ p {
 }
 
 
-/* Hide elements using custom fonts until they are loaded to prevent FOUC */
-.fonts-loading .bannerTextChecked,
-.fonts-loading .bannerTextBrokenOne,
-.fonts-loading .bannerTextBrokenTwo {
+/* Hide elements using custom fonts to prevent FOUC */
+.hide-custom-fonts .bannerTextChecked,
+.hide-custom-fonts .bannerTextBrokenOne,
+.hide-custom-fonts .bannerTextBrokenTwo {
 	visibility: hidden !important;
+}
+
+/* Show elements using custom fonts when the custom font either loads/fails to load */
+.lobster .bannerTextChecked,
+.no-lobster .bannerTextChecked,
+.broken .bannerTextBrokenOne,
+.no-broken .bannerTextBrokenOne,
+.broken .bannerTextBrokenTwo,
+.no-broken .bannerTextBrokenTwo {
+	visibility: visible !important;
 }
 
 

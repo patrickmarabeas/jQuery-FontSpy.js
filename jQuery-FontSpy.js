@@ -21,7 +21,7 @@
         }
 
     // Add class to hide elements using custom fonts
-    $html.addClass('fonts-loading');
+    $html.addClass('hide-custom-fonts');
 
     var defaults = {
         font: fontFamilyName,
@@ -53,7 +53,7 @@
     $tester.css('fontFamily', config.font + ',' + config.testFont);
 
     var failure = function () {
-      $html.addClass("no-"+config.fontClass).removeClass('fonts-loading');
+      $html.addClass("no-"+config.fontClass);
       if( config && config.failure ) {
         config.failure();
       }
@@ -63,7 +63,7 @@
 
     var success = function () {
       config.callback();
-      $html.addClass(config.fontClass).removeClass('fonts-loading');
+      $html.addClass(config.fontClass);
       if( config && config.success ) {
         config.success();
       }
