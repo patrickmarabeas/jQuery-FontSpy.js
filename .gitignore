@@ -1,1 +1,6 @@
-.idea
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Node
+node_modules/

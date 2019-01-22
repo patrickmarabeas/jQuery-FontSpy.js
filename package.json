@@ -1,0 +1,23 @@
+{
+  "name": "jquery-fontspy",
+  "version": "3.0.0",
+  "description": "jQuery-FontSpy.js works by checking the change in width of a string. Courier New is used as the font to compare against as it is one of the most widely distrubuted default fonts. Using a very large font-size, we are able to determine even the slightest change. When the width of the string changes, we know that the custom font-face file has been loaded and applied.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickmarabeas/jQuery-FontSpy.js.git"
+  },
+  "keywords": [
+    "jQuery",
+    "javascript",
+    "typography"
+  ],
+  "author": "Patrick Marabeas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patrickmarabeas/jQuery-FontSpy.js/issues"
+  },
+  "homepage": "https://github.com/patrickmarabeas/jQuery-FontSpy.js#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
