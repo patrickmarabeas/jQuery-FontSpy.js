@@ -33,6 +33,27 @@ Font names are converted to lowercase and spaces are removed when converted to c
 For example, the font name, `My Icons` will render as `myicons` when used an HTML class.
 
 
+## Preventing FOUC (Flash of unstyled content):
+
+Hiding FOUC is major use case of jQuery-FontSpy.js. To prevent FOUC with jQuery-FontSpy, a class is added to the HTML element at the start of a page load, ```hide-custom-fonts```, which can be used to hide elements using custom-fonts.
+
+```css
+/* Hide elements using custom fonts until they are loaded to prevent FOUC */
+.hide-custom-fonts .bannerTextChecked {
+  visibility: hidden !important;
+}
+```
+In the event a custom font loads, a class is added to the html element with the name of the font or if the font fails to load a class with the name of the font prefixed with "no-" is added to the html element. These classes can be used to override the styling that hides elements using custom fonts.
+
+```css
+/* Hide elements using custom fonts until they are loaded to prevent FOUC */
+.lobster .bannerTextChecked,
+.no-lobster .bannerTextChecked {
+  visibility: visible !important;
+}
+```
+
+
 ## Options
 
 **glyphs:** If your font is mapped to PUA characters, you can pass a few of the glyphs contained in the custom font. We measure these characters to make sure the font has loaded successfully.

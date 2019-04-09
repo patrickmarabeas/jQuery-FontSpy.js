@@ -52,6 +52,61 @@ p {
 }
 
 
+
+.bannerText {
+	font-family: "Lobster";
+	font-size: 60px;
+}
+
+.bannerTextChecked {
+	font-family: "Lobster";
+	font-size: 60px;
+}
+
+.bannerTextBrokenOne {
+	font-family: "BROKEN";
+	font-size: 60px;
+}
+
+
+.bannerTextBrokenTwo {
+	font-family: "BROKEN";
+	font-size: 60px;
+}
+
+
+
+.makeSmall {
+	font-size: 20px !important;
+	color: green !important;
+	font-family: verdana !important;
+}
+
+.makeBig {
+	font-size: 80px !important;
+}
+
+
+/* Hide elements using custom fonts to prevent FOUC */
+.hide-custom-fonts .bannerTextChecked,
+.hide-custom-fonts .bannerTextBrokenOne,
+.hide-custom-fonts .bannerTextBrokenTwo {
+	visibility: hidden !important;
+}
+
+/* Show elements using custom fonts when the custom font either loads/fails to load */
+.lobster .bannerTextChecked,
+.no-lobster .bannerTextChecked,
+.broken .bannerTextBrokenOne,
+.no-broken .bannerTextBrokenOne,
+.broken .bannerTextBrokenTwo,
+.no-broken .bannerTextBrokenTwo {
+	visibility: visible !important;
+}
+
+
+
+
 .lobster #lobster-result {
 	color: green;
 }

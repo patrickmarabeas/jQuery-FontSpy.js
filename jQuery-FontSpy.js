@@ -20,6 +20,9 @@
           throw 'A valid fontName is required. fontName must be a string and must not be an empty string.';
         }
 
+    // Add class to hide elements using custom fonts
+    $html.addClass('hide-custom-fonts');
+
     var defaults = {
         font: fontFamilyName,
         fontClass: fontFamilyName.toLowerCase().replace( /\s/g, '' ),
