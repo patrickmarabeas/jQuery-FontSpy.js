@@ -37,9 +37,9 @@ For example, the font name, `My Icons` will render as `myicons` when used an HTM
 
 **glyphs:** If your font is mapped to PUA characters, you can pass a few of the glyphs contained in the custom font. We measure these characters to make sure the font has loaded successfully.
 
-**success:** If the font specified as in the first arguement passed to fontSpy loads, you can excute custom JavaScript here.
+**success:** If the font specified as in the first argument passed to fontSpy loads, you can excute custom JavaScript here.
 
-**failure:** If the font specified as in the first arguement passed to fontSpy fails to load, you can excute custom JavaScript here.
+**failure:** If the font specified as in the first argument passed to fontSpy fails to load, you can excute custom JavaScript here.
 
 ## Browser Support
 
