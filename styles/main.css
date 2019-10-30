@@ -60,6 +60,14 @@ p {
 	color: red;
 }
 
+.arvo #arvo-result {
+	color: green;
+}
+
+.no-arvo #arvo-result {
+	color: red;
+}
+
 .broken #broken-result {
 	color: green;
 }

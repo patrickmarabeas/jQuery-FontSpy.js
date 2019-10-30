@@ -9,6 +9,7 @@
 
 	<script src="jQuery-FontSpy.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/main.css" />
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700italic' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -24,6 +25,7 @@
 	<hr/>
 	<main id="main">
 		<div>Lobster font <span id="lobster-result"></span>.</div>
+		<div>Arvo Bold Italic font <span id="arvo-result"></span>.</div>
 		<div>BROKEN font <span id="broken-result"></span>.</div>
 	</main>
 
@@ -38,6 +40,17 @@
 			  },
 			  failure: function() {
 			   $('#lobster-result').html("failed to load");
+			  }
+			});
+
+			fontSpy('Arvo', {
+			  fontWeight : 700,
+			  fontStyle : 'italic',
+			  success: function() {
+			    $('#arvo-result').html("loaded successfully");
+			  },
+			  failure: function() {
+			   $('#arvo-result').html("failed to load");
 			  }
 			});
 

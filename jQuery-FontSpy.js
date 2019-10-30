@@ -23,6 +23,8 @@
     var defaults = {
         font: fontFamilyName,
         fontClass: fontFamilyName.toLowerCase().replace( /\s/g, '' ),
+        fontStyle: 'normal',
+        fontWeight: 'normal',
         success: function() {},
         failure: function() {},
         testFont: 'Courier New',
@@ -41,7 +43,10 @@
         .css('left', '-9999px')
         .css('visibility', 'hidden')
         .css('fontFamily', config.testFont)
+        .css('fontWeight', config.fontWeight)
+        .css('fontStyle', config.fontStyle)
         .css('fontSize', '250px');
+
 
     $body.append($tester);
 
